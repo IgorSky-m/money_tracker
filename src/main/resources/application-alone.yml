@@ -1,0 +1,33 @@
+com:
+  bot:
+    calculation:
+      settings:
+        TOKEN: ${TOKEN}
+        NAME: ${NAME}
+      job:
+        crypto:
+          executors:
+            pool-size: 1
+            enabled: false
+            cron: '0 0/5 * * * *' #расписание выполнения обработчика (каждые 30 сек)
+        fiat:
+          executors:
+            pool-size: 1
+            enabled: true
+            cron: '0 0/3 * * * *' #расписание выполнения обработчика (каждые 30 сек)
+spring:
+  datasource:
+    driver: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update

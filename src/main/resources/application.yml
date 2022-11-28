@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: alone
+
+app:
+  name: Calculation App
+  security:
+    pin_code:
+      lifetime: 300 #время жизни пин кода, сек
+    auth:
+      lifetime: 3600 #время жизни авторизации, сек
+      name: auth
+com:
+  bot:
+    calculation:
+      command:
+        none:
+          prefix: '123456789000345'
+
+    transport:
+      com:
+       exchange_rate:
+         url: 'https://v6.exchangerate-api.com/v6'
+         token: ${exchange_rate_token}
+       currency:
+        url: 'https://api-adapter.backend.currency.com/api/v2'
+        exchange:
+          path: 'ticker/24hr'
+
+
